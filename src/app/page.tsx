@@ -1,11 +1,11 @@
 // src/app/page.tsx
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
-import Link from 'next/link';
+import { useEffect, useRef } from 'react';
 import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
-import { csv } from 'd3-fetch';
+import { Feature, FeatureCollection, GeoJsonProperties, Geometry } from 'geojson';
+
 import NextImage from 'next/image';
 
 // 環境変数からMapboxアクセストークンを取得
@@ -14,7 +14,6 @@ mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN || '';
 export default function Home() {
   const mapContainer = useRef<HTMLDivElement>(null);
   const map = useRef<mapboxgl.Map | null>(null);
-  const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
     if (!mapContainer.current) return;
@@ -68,14 +67,49 @@ export default function Home() {
         };
 
         // GeoJSONデータ
-        const cities = {
+        // const cities = {
+        //   type: 'FeatureCollection',
+        //   features: [
+        //     {
+        //       type: 'Feature',
+        //       geometry: {
+        //         type: 'Point',
+        //         coordinates: [-74.00597, 40.71427], // New York City
+        //       },
+        //       properties: { description: 'New York City' },
+        //     },
+        //     {
+        //       type: 'Feature',
+        //       geometry: {
+        //         type: 'Point',
+        //         coordinates: [139.69171, 35.6895], // Tokyo
+        //       },
+        //       properties: { description: 'Tokyo' },
+        //     },
+        //     {
+        //       type: 'Feature',
+        //       geometry: {
+        //         type: 'Point',
+        //         coordinates: [151.2099, -33.865143], // Sydney
+        //       },
+        //       properties: { description: 'Sydney' },
+        //     },
+        //   ],
+        // };
+
+        // map.current.addSource('cities', {
+        //   type: 'geojson',
+        //   data: cities,
+        // });
+        // GeoJSONデータを明示的に型付け
+        const cities: FeatureCollection<Geometry, GeoJsonProperties> = {
           type: 'FeatureCollection',
           features: [
             {
               type: 'Feature',
               geometry: {
                 type: 'Point',
-                coordinates: [-74.00597, 40.71427], // New York City
+                coordinates: [-74.00597, 40.71427],
               },
               properties: { description: 'New York City' },
             },
@@ -83,7 +117,7 @@ export default function Home() {
               type: 'Feature',
               geometry: {
                 type: 'Point',
-                coordinates: [139.69171, 35.6895], // Tokyo
+                coordinates: [139.69171, 35.6895],
               },
               properties: { description: 'Tokyo' },
             },
@@ -91,7 +125,7 @@ export default function Home() {
               type: 'Feature',
               geometry: {
                 type: 'Point',
-                coordinates: [151.2099, -33.865143], // Sydney
+                coordinates: [151.2099, -33.865143],
               },
               properties: { description: 'Sydney' },
             },
@@ -100,7 +134,7 @@ export default function Home() {
 
         map.current.addSource('cities', {
           type: 'geojson',
-          data: cities,
+          data: cities, // ここで cities が正しくFeatureCollectionと認識される
         });
 
         map.current.addLayer({
@@ -157,16 +191,16 @@ export default function Home() {
         <div className="flex flex-row gap-1 items-center mb-1">
           <NextImage src="icon256.svg" alt="icon256 " width={40} height={40} />
           <h1 className="text-xl md:text-3xl" id="title">
-            Urban <span className='text-[#186000]'>Greenness</span> Visualization
+            Urban <span className="text-[#186000]">Greenness</span> Visualization
           </h1>
         </div>
-        <div className='flex flex-col items-start gap-0'>
-        <p>Visualization of major cities in the world</p>
-        <div className="hugsi-link-container">
-          <p className=' data-credit'>Data credit: </p>
-          <a href="https://hugsi.green/" target="_blank" className="hugsi-link">
-            <p className=" ">hugsi.green</p>
-          </a>
+        <div className="flex flex-col items-start gap-0">
+          <p>Visualization of major cities in the world</p>
+          <div className="hugsi-link-container">
+            <p className=" data-credit">Data credit: </p>
+            <a href="https://hugsi.green/" target="_blank" className="hugsi-link">
+              <p className=" ">hugsi.green</p>
+            </a>
           </div>
         </div>
       </div>
