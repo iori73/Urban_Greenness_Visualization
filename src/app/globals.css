@@ -1,0 +1,109 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  /* font-family: Arial, Helvetica, sans-serif; */
+  /* font-family: "Space Mono", monospace; */
+  letter-spacing: -.04rem;
+  font-family: 'Roboto', sans-serif;
+
+
+}
+
+#title {
+  margin: 0;  
+  font-weight: 500;
+  /* font-size: 2rem; */
+}
+
+
+
+.space-mono-regular {
+  font-family: "Space Mono", monospace;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.space-mono-bold {
+  font-family: "Space Mono", monospace;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.space-mono-regular-italic {
+  font-family: "Space Mono", monospace;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.space-mono-bold-italic {
+  font-family: "Space Mono", monospace;
+  font-weight: 700;
+  font-style: italic;
+}
+
+/* --- */
+.mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip {
+  display: none;
+}
+
+.mapboxgl-popup-content {
+  transform: translateY(-16px);
+  border-radius: 4px  !important;
+}
+
+
+/* --- */
+.hugsi-link-container {
+  display: flex;
+  gap: .5rem;
+}
+
+.hugsi-link {
+  display: flex;
+  align-items: center;
+  gap: .2rem;
+  text-decoration: underline;
+
+}
+
+.hugsi-logo {
+  width: 3rem;
+  height: 3rem;
+}
+.data-credit {
+  margin: 0;
+}
+
+/* .heading p {
+  font-weight: 400;
+  margin: 0 auto;
+  color: black;
+} */
+
+
+
+.external-logo {
+  width: 1.5rem;
+  height: 1.5rem;
+}

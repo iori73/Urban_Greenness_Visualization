@@ -1,0 +1,244 @@
+/* src/components/CityLayout.css */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 4rem;
+    position: relative;
+    width: 100vw;
+  }
+
+
+
+  /* src/components/CityLayout.css に追加 */
+  .breadcrumb-heading-wrapper {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+  }
+
+
+.breadcrumb {
+  position: relative;
+  /* top: 1rem;
+  left: 2rem; */
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'Space Mono', monospace;
+  z-index: 20;
+  /* background-color: rgba(255, 255, 255, 0.8); */
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border-radius: 4px;
+  width: fit-content;
+}
+
+.breadcrumb-link {
+  color: #186000;
+  text-decoration: none;
+}
+
+.breadcrumb-link:hover {
+  text-decoration: underline;
+}
+
+.breadcrumb-separator {
+  color: #666;
+  margin: 0 0.25rem;
+}
+
+.breadcrumb-current {
+  font-weight: 600;
+  color: #333;
+}
+
+/* --- */
+  
+  .heading {
+    display: flex;
+    flex-direction: column;
+    /* position: absolute; 
+     top: 2rem;
+    left: 2rem; */
+    z-index: 10;
+    /* font-family: 'Roboto', sans-serif; */
+    gap: 1rem;
+  }
+  
+
+  
+
+
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    width: 50vw;
+    height: 100vh;
+  }
+  
+  .tile {
+    height: auto;
+    display: none;
+    opacity: 0;
+    transform: translateY(-50px);
+    position: absolute;
+    left: 0;
+    display: none;
+    opacity: 0;
+    transition: opacity 2s ease, transform 2s ease;
+  }
+  
+  #layer1 {
+    width: 100%;
+    top: 0px;
+    z-index: 4;
+  }
+  
+  #layer2 {
+    width: 80%;
+    top: 48vh;
+    left: 8%;
+    z-index: 3;
+  }
+  
+  #layer3 {
+    width: 80%;
+    top: 78vh;
+    left: 8%;
+    z-index: 2;
+  }
+  
+  #layer4 {
+    width: 70%;
+    top: 108vh;
+    left: 12%;
+    z-index: 1;
+  }
+  
+  .label {
+    left: 44vw;
+    /* width: fit-content; */
+    min-width: 20vw;
+    z-index: 5;
+  }
+  
+  #label1 { top: 56vh; }  
+  #label2 { top: 86vh; }  
+  #label3 { top: 116vh; }
+  
+  .back-link {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    padding: 0.5rem;
+    background-color: #ffffff88;
+    backdrop-filter: blur(10px);
+    color: #186000;
+    text-decoration: none;
+    border-radius: 1000px;
+    border: #186000 2px solid;
+    z-index: 100;
+    display: flex;
+    gap: .5rem;
+  }
+  
+  /* --- */
+  @media screen and (max-width: 768px) {
+    .breadcrumb-heading-wrapper {
+      top: 1rem;
+      left: 1rem;
+    }
+    .breadcrumb {
+      gap: 0.2rem;
+      padding: 0.2rem;
+      margin-bottom: .5rem;
+    }
+
+    .heading {
+      gap: .5rem;
+    }
+
+
+    #title {
+      font-size: 2rem;
+    }
+  
+    .hugsi-link-container {
+      gap: .5rem;
+    }
+  
+    .hugsi-logo {
+      width: 2rem;
+      height: 2rem;
+    }
+    
+    /* .heading p {
+      font-size: 1.2rem;
+    } */
+  
+    .container {
+      width: 90vw;
+    }
+  
+    #layer1 {
+      top: 10vh;
+    }
+  
+    #layer2 {
+      top: 32vh;
+    }
+  
+    #layer3 {
+      top: 46vh;
+    }
+  
+    #layer4 {
+      top: 60vh;
+    }
+    
+    .label {
+      position: absolute;
+      width: 30vw;
+      left: 60vw;
+      z-index: 5;
+    }
+  
+    #label1 {
+      top: 36vh;
+    }
+  
+    #label2 {
+      top: 48vh;
+    }
+  
+    #label3 {
+      top: 64vh;
+    }
+  }
+  
+
+
+
+  /* 既存のCSSに追加 */
+.city-info {
+    position: absolute;
+    bottom: 5rem;
+    left: 2rem;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 1rem;
+    border-radius: 4px;
+    z-index: 10;
+  }
+  
+  .city-info p {
+    margin: 0.5rem 0;
+    font-size: 14px;
+  }
+
+
+
+  

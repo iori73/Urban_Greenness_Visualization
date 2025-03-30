@@ -1,0 +1,4 @@
+Name,Latitude,Longitude,URL,Radius,GreenSpacePercentage,VegetationHealth_left,VegetationHealth_color,VegetationHealth_value,GreenSpaceDistribution_left,GreenSpaceDistribution_color,GreenSpaceDistribution_value
+New York City,40.71427,-74.00597,https://hugsi.green/cities/New_York_City,100,23,150,#FDBA74,0.64,23.4,#b9c3ab,9
+Tokyo,35.6895,139.69171,https://hugsi.green/cities/Tokyo,100,20,154,#d7bd51,0.66,13,#bec1b7,5
+Sydney,-33.865143,151.2099,https://hugsi.green/cities/Sydney,100,42,160,#d1bd4e,0.69,85.8,#9fc26b,33
